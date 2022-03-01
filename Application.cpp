@@ -10,8 +10,7 @@ void Application::selectOption() {
 
 void Application::Menu() {
 	do {
-		switch (flag) {
-		case -1:
+		if (flag == -1) {
 			cout << "Starting menu: \n";
 			cout << "0. Exit \n";
 			cout << "1. Configuration \n";
@@ -21,9 +20,11 @@ void Application::Menu() {
 				cout << "Exiting... \n";
 				flag = 0;
 			}
-			else if (selectedOption == 1) flag = 1;
+			else if (selectedOption == 1)
+				flag = 1;
 			else flag = 2;
-		case 1:
+		}
+		if (flag == 1) {
 			cout << "Configuration: \n";
 			cout << "0. Back \n";
 			cout << "1. View family members \n";
@@ -38,8 +39,7 @@ void Application::Menu() {
 				if (selectedOption == 3) flag = 13;
 				if (selectedOption == 4) flag = 14;
 			}
-		case 0:
-			break;
 		}
-	} while (selectedOption != 0);
+
+	} while (flag != 0);
 }
